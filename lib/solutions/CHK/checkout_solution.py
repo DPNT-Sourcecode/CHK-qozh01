@@ -62,7 +62,11 @@ def special_minus(B_counts, free_Bs):
 
     return B_counts
 
-def calc_any_three_of_STXYZ()
+def calc_any_three_of_STXYZ(skus):
+
+    while True:
+        
+
 
 
 def checkout(skus):
@@ -102,19 +106,19 @@ def checkout(skus):
     total += two_price_calc(Q_counts, 3, 30, 80)
     total += single_price_calc(skus.count('R'), 50)
 
+    total += buy_n_get_k_free_calc(skus.count('U'), 40, 3, 1)
+    total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 2, 3)
+    total += single_price_calc(skus.count('W'), 20)
+
+
     total += single_price_calc(skus.count('S'), 30)
     total += single_price_calc(skus.count('T'), 20)
-
-    total += buy_n_get_k_free_calc(skus.count('U'), 40, 3, 1)
-
-    total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 2, 3)
-
-    total += single_price_calc(skus.count('W'), 20)
     total += single_price_calc(skus.count('X'), 90)
     total += single_price_calc(skus.count('Y'), 10)
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
 
