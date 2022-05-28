@@ -62,6 +62,8 @@ def special_minus(B_counts, free_Bs):
 
     return B_counts
 
+def calc_any_three_of_STXYZ()
+
 
 def checkout(skus):
     if not isinput_sanitised(skus):
@@ -113,5 +115,6 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
