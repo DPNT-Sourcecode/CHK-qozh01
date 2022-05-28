@@ -19,7 +19,7 @@ def single_price_calc(count, one_price):
 
 
 def buy_one_get_one_free(count, one_price):
-    return 5
+    return 0
 
 
 def isinput_sanitised(skus):

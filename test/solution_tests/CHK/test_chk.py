@@ -17,3 +17,18 @@ class TestCheckout():
     def test_checkout_Illigal_chars(self):
         assert checkout_solution.checkout("ABJKCD") == -1
 
+    def test_checkout_2E(self):
+        assert checkout_solution.checkout("EE") == -1
+
+    def test_checkout_3E(self):
+        assert checkout_solution.checkout("EEE") == -1
+
+    def test_checkout_5A(self):
+        assert checkout_solution.checkout("EEEEE") == -1
+
+    def test_checkout_3A(self):
+        assert checkout_solution.checkout("AAA") == -1
+    
+    def test_checkout_6A(self):
+        assert checkout_solution.checkout("AAAAAA") == -1
+
