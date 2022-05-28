@@ -3,7 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 
-allowed_values = "ABCDE"
+allowed_values = "ABCDEF"
 
 
 def multi_price_calc_A(count, price1, price3, price5):
@@ -49,8 +49,15 @@ def isinput_sanitised(skus):
     return True
 
 
-def special_minus(existing_counts, free_counts):
-    
+def special_minus(B_counts, free_Bs):
+
+    # minus off Bs until its zero.
+    if (B_counts - free_Bs) > 0:
+        B_counts = B_counts - free_Bs
+    else:
+        B_counts = 0
+
+    return B_counts
 
 def checkout(skus):
     if not isinput_sanitised(skus):
@@ -64,14 +71,14 @@ def checkout(skus):
     C_counts = skus.count('C')
     D_counts = skus.count('D')
     E_counts = skus.count('E')
+    F_counts = skus.count('F')
 
     free_Bs = get_free_Bs(E_counts)
+    # minus off Bs until its zero
+    B_counts = special_minus(B_counts, free_Bs)
 
-    # minus off Bs until its zero.
-    if (B_counts - free_Bs) > 0:
-        B_counts = B_counts - free_Bs
-    else:
-        B_counts = 0
+    free_Fs = get_free_Fs(F_counts)
+    F_counts = special_minus(F_counts, free_Fs)
 
     total = 0
     total += multi_price_calc_A(A_counts, 50, 130, 200)
@@ -79,6 +86,7 @@ def checkout(skus):
     total += single_price_calc(C_counts, C_one_price)
     total += single_price_calc(D_counts, D_one_price)
     total += single_price_calc(E_counts, 40)
+    total += single_price_calc(F_counts, 10)
 
     return total
 

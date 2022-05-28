@@ -41,3 +41,6 @@ class TestCheckout():
     def test_checkout_9A(self):
         assert checkout_solution.checkout("AAAAAAAAA") == 380
 
+    def test_checkout_A(self):
+        assert checkout_solution.checkout("AAAAAAAAA") == 380
+
