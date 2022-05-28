@@ -35,6 +35,10 @@ def single_price_calc(count, one_price):
 def get_free_Bs(E_count):
     return E_count//2
 
+def get_free_Fs(F_count):
+    return F_count//2
+
+
 
 def isinput_sanitised(skus):
     # Check if there are no values outside of ABCD
@@ -44,6 +48,9 @@ def isinput_sanitised(skus):
             return False
     return True
 
+
+def special_minus(existing_counts, free_counts):
+    
 
 def checkout(skus):
     if not isinput_sanitised(skus):
@@ -74,6 +81,7 @@ def checkout(skus):
     total += single_price_calc(E_counts, 40)
 
     return total
+
 
 
 
