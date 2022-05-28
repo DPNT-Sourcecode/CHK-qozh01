@@ -13,3 +13,7 @@ class TestCheckout():
 
     def test_checkout_5B(self):
         assert checkout_solution.checkout("BBBBB") == 120
+
+    def test_checkout_Illigal_chars(self):
+        assert checkout_solution.checkout("ABJKCD") == -1
+
