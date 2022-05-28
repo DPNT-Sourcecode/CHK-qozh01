@@ -64,8 +64,13 @@ def special_minus(B_counts, free_Bs):
 
 def calc_any_three_of_STXYZ(skus):
 
-    while True:
-        
+    
+    # while True:
+    #     temp = skus.copy()
+    #     set(temp)
+
+
+
 
 
 
@@ -118,6 +123,7 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
 
