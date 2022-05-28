@@ -66,31 +66,34 @@ def special_minus(B_counts, free_Bs):
 
     return B_counts
 
+def calc_xA_get_yB():
+    pass
+
 
 def checkout(skus):
     if not isinput_sanitised(skus):
         return -1
 
+    C_one_price = 20
+    D_one_price = 15
 
+    A_counts = skus.count('A')
     B_counts = skus.count('B')
+    C_counts = skus.count('C')
+    D_counts = skus.count('D')
     E_counts = skus.count('E')
+    F_counts = skus.count('F')
 
     # minus off Bs until its zero
     free_Bs = get_free_Bs(E_counts)
     B_counts = special_minus(B_counts, free_Bs)
 
     total = 0
-    total += three_price_calc(skus.count('A'), 50, 130, 200, 1, 3, 5)
-    total += two_price_calc(skus.count('B'), 30, 45, 2)
-    total += single_price_calc(skus.count('C'), 20)
-    total += single_price_calc(skus.count('D'), 15)
-    total += single_price_calc(skus.count('E'), 40)
-    total += buy_n_get_k_free_calc(skus.count('F'), 10, 2, 1)
+    total += three_price_calc(A_counts, 50, 130, 200, 1, 3, 5)
+    total += two_price_calc(B_counts, 2, 30, 45)
+    total += single_price_calc(C_counts, C_one_price)
+    total += single_price_calc(D_counts, D_one_price)
+    total += single_price_calc(E_counts, 40)
+    total += buy_n_get_k_free_calc(F_counts, 10, 2, 1)
 
     return total
-
-
-
-
-
-
