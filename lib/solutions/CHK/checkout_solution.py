@@ -80,7 +80,7 @@ def calc_any_three_of_STXYZ(skus):
 
     while True:
         intersection = offer_SKUs_list.intersection(skus_list)
-        print(intersection)
+        print("Original Intersection", intersection)
         if (len(intersection) < 3):
             break
         else:
@@ -89,12 +89,10 @@ def calc_any_three_of_STXYZ(skus):
             intersection = list(intersection)
             intersection.sort(key=myFunc, reverse=True)
             # take top 3 most expensive
-            print(intersection)
             top_3_expensive_skus = intersection[:3]
             for i in top_3_expensive_skus:
                 skus_list.remove(i)
-            print(top_3_expensive_skus)
-            print(skus_list)
+            print("skulist after removal", skus_list)
 
     return n_offers_redeemed * 45, "".join(skus_list)
 
@@ -103,6 +101,7 @@ def checkout(skus):
     if not isinput_sanitised(skus):
         return -1
 
+    # remove all the offers that fall into the STXYZ category
     total, skus = calc_any_three_of_STXYZ(skus)
 
     # Check these counts
@@ -148,6 +147,7 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
 
