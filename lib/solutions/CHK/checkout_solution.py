@@ -6,11 +6,16 @@
 allowed_values = "ABCDE"
 
 
+def multi_price_calc_A(count, price1, price3, price5):
+    remainder = count
 
-def multi_price_calc_A(count, offer_multiple, price1, price3, price5):
+    quotient5 = remainder // price5
+    remainder = remainder % price5
 
-    quotient = count // offer_multiple
-    remainder = count % offer_multiple
+    quotient3 = remainder // price3
+    remainder = remainder % price3
+
+    quotient1 = remainder // price1
 
     return remainder * one_price + quotient * muliple_price
 
@@ -54,13 +59,10 @@ def checkout(skus):
     E_counts = skus.count('E')
 
     total = 0
-    total += multi_price_calc(A_counts, 3, 50, 130)
+    total += multi_price_calc_A(A_counts, 50, 130, 200)
     total += multi_price_calc(B_counts, 2, 30, 45)
     total += single_price_calc(C_counts, C_one_price)
     total += single_price_calc(D_counts, D_one_price)
     # total += buy_one_get_one_free(E_counts, 40, )
 
     return total
-
-
-
