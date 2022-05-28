@@ -20,12 +20,12 @@ def three_price_calc(count, price1, price3, price5, qty1, qty2, qty3):
     return quotient5 * price5 + quotient3 * price3 + quotient1 * price1
 
 
-def two_price_calc(count, price1, price2, qty1, qty2):
+def two_price_calc(count, price1, price2, offer_multiple):
 
     quotient = count // offer_multiple
     remainder = count % offer_multiple
 
-    return remainder * one_price + quotient * muliple_price
+    return remainder * price1 + quotient * price2
 
 
 def single_price_calc(count, one_price):
@@ -94,6 +94,7 @@ def checkout(skus):
     total += buy_n_get_k_free_calc(F_counts, 10, 2, 1)
 
     return total
+
 
 
 
