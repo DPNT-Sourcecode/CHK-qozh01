@@ -62,41 +62,33 @@ def special_minus(B_counts, free_Bs):
 
     return B_counts
 
-def myFunc(e):
-    prices = {"S": 20, "T":20, "X":17, "Y":20, "Z":21}
 
-    return 
-    return len(e)
+def myFunc(e):
+    prices = {"S": 20, "T": 20, "X": 17, "Y": 20, "Z": 21}
+    return prices[e]
+
 
 def calc_any_three_of_STXYZ(skus):
     # skus_list = list(skus)
 
     offer_SKUs_list = set("STXYZ")
 
-
     intersection = offer_SKUs_list.intersection(skus)
     print(intersection)
     # sort interseciton by price.
-    sort(intersection)
+    list(intersection).sort(key=myFunc)
+    # take top 3 most expensive
 
-        # A function that returns the length of the value:
+    top_3_expensive_skus = intersection[:2]
 
+    # pop them from remaining SKUs
+    intersection.pop(top_3_expensive_skus)
 
-    cars = ['Ford', 'Mitsubishi', 'BMW', 'VW']
-
-    cars.sort(key=myFunc)
-        
-
-    # pop the most expensive 3 in the set. 
+    # pop the most expensive 3 in the set.
     # Then try again. until intersecion is less than 3.
     # Then calculate the remaining one by one.
 
     return (len(intersection) // 3) * 20
-
-
-
-
-
 
 
 def checkout(skus):
@@ -140,7 +132,6 @@ def checkout(skus):
     total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 2, 3)
     total += single_price_calc(skus.count('W'), 20)
 
-
     total += single_price_calc(skus.count('S'), 30)
     total += single_price_calc(skus.count('T'), 20)
     total += single_price_calc(skus.count('X'), 90)
@@ -148,5 +139,6 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
