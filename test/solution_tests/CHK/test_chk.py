@@ -79,6 +79,3 @@ class TestMultiOffer():
     def test_multi_offer(self):
         assert checkout_solution.calc_any_three_of_STXYZ("STXYZ") == 20
 
-
-
-
