@@ -76,6 +76,15 @@ class TestCheckout():
         expected = 45 + 17 + 20
         assert checkout_solution.checkout("STXYZ") == expected
 
+    def test_checkout_SSS(self):
+        assert checkout_solution.checkout("SSS") == 45
+
+    def test_checkout_SSSZ(self):
+        assert checkout_solution.checkout("SSSZ") == 65
+
+    def test_checkout_ZZZ(self):
+        assert checkout_solution.checkout("ZZZ") == 45
+
 class TestMultiOffer():
     def test_multi_offer(self):
         cost, _ = checkout_solution.calc_any_three_of_STXYZ("STXYZ")
@@ -84,6 +93,7 @@ class TestMultiOffer():
     def test_multi_offer2(self):
         cost, _ = checkout_solution.calc_any_three_of_STXYZ("STXYZZ")
         assert cost == 90
+
 
 
 
