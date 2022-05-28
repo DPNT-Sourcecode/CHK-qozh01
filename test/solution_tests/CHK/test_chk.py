@@ -58,4 +58,3 @@ class TestCheckout():
 
     def test_checkout_1K(self):
         assert checkout_solution.checkout(1*"K") == 80
-
