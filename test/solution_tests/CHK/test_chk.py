@@ -1,6 +1,7 @@
-from lib.solutions.CHK import one
+from lib.solutions.CHK import checkout
 
 
-class TestSum():
-    def test_sum(self):
-        assert one.get() == 1
+class TestCheckout():
+    def test_checkout(self):
+        assert checkout("ABCD") == 1
+
