@@ -107,9 +107,11 @@ def checkout(skus):
 
     total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 2, 3)
 
+    total += single_price_calc(skus.count('W'), 20)
     total += single_price_calc(skus.count('X'), 90)
     total += single_price_calc(skus.count('Y'), 10)
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 

@@ -65,3 +65,13 @@ class TestCheckout():
     def test_checkout_RRRQQ(self):
         assert checkout_solution.checkout("RRRQQ") == 180
 
+    def test_checkout_W(self):
+        assert checkout_solution.checkout("W") == 20
+
+    def test_checkout_ABCDEFGHIJKLMNOPQRSTUVWXYZ(self):
+        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
+
+    def test_checkout_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ(self):
+        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1880
+
+
