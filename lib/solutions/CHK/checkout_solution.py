@@ -79,6 +79,7 @@ def checkout(skus):
     if not isinput_sanitised(skus):
         return -1
 
+    # Check these counts
     B_counts = skus.count('B')
     E_counts = skus.count('E')
 
@@ -86,10 +87,12 @@ def checkout(skus):
     M_counts = skus.count('M')
 
     R_counts = skus.count('R')
-    Q_counts = skus.count('E')
+    Q_counts = skus.count('Q')
 
-    # minus off Bs until its zero
     B_counts = special_minus(B_counts, get_free_Bs(E_counts))
+    M_counts = special_minus(M_counts, get_free_Bs(N_counts))
+    Q_counts = special_minus(Q_counts, get_free_Bs(R_counts))
+
 
     total = 0
     total += three_price_calc(skus.count('A'), 50, 130, 200, 1, 3, 5)
@@ -99,6 +102,12 @@ def checkout(skus):
     total += single_price_calc(E_counts, 40)
     total += buy_n_get_k_free_calc(skus.count('F'), 10, 2, 1)
 
+
+    total += single_price_calc(skus.count('G'), 20)
+    total += three_price_calc(skus.count('H'), 10, 45, 80, 1, 5, 10)
+
+
     return total
+
 
 
