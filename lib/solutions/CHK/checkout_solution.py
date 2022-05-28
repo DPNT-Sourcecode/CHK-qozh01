@@ -147,12 +147,3 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
-
-
-
-
-
-
-
-
-

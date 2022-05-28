@@ -68,13 +68,8 @@ class TestCheckout():
     def test_checkout_W(self):
         assert checkout_solution.checkout("W") == 20
 
-    def test_checkout_ABCDEFGHIJKLMNOPQRSTUVWXYZ(self):
-        assert checkout_solution.checkout("ABCDEFGHIJKLMNOPQRSTUVWXYZ") == 965
-
-    def test_checkout_ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ(self):
-        assert checkout_solution.checkout(
-            "ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ") == 1880
-
+    def test_checkout_STXYZA(self):
+        assert checkout_solution.checkout("STXYZA") == 45 + 50 + 17 + 20
 
 class TestMultiOffer():
     def test_multi_offer(self):
@@ -84,7 +79,3 @@ class TestMultiOffer():
     def test_multi_offer2(self):
         cost, _ = checkout_solution.calc_any_three_of_STXYZ("STXYZZ")
         assert cost == 90
-
-
-
-
