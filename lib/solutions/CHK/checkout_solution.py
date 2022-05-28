@@ -63,9 +63,9 @@ def special_minus(B_counts, free_Bs):
     return B_counts
 
 
-def myFunc(e):
-    prices = {"S": 20, "T": 20, "X": 17, "Y": 20, "Z": 21}
-    return prices[e]
+def price_lookup(e):
+    selected_prices = {"S": 20, "T": 20, "X": 17, "Y": 20, "Z": 21}
+    return selected_prices[e]
 
 
 def calc_any_three_of_STXYZ(skus):
@@ -75,7 +75,7 @@ def calc_any_three_of_STXYZ(skus):
     offer_SKUs_list = set("STXYZ")
 
     # pop the most expensive 3 in the set.
-    # Then try again. until intersecion is less than 3.
+    # Then try again. until intersection is less than 3.
     # Then calculate the remaining one by one.
 
     while True:
@@ -87,7 +87,7 @@ def calc_any_three_of_STXYZ(skus):
             n_offers_redeemed += 1
             # sort interseciton by price.
             intersection = list(intersection)
-            intersection.sort(key=myFunc, reverse=True)
+            intersection.sort(key=price_lookup, reverse=True)
             # take top 3 most expensive
             top_3_expensive_skus = intersection[:3]
             for i in top_3_expensive_skus:
@@ -149,5 +149,6 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 21)
 
     return total
+
 
 
