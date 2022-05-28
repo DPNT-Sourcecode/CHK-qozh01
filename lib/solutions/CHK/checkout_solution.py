@@ -18,6 +18,10 @@ def single_price_calc(count, one_price):
     return count * one_price
 
 
+def buy_one_get_one_free(count, one_price):
+    return 5
+
+
 def isinput_sanitised(skus):
     # Check if there are no values outside of ABCD
     # if so, return false
@@ -38,8 +42,16 @@ def checkout(skus):
     B_counts = skus.count('B')
     C_counts = skus.count('C')
     D_counts = skus.count('D')
-    D_counts = skus.count('D')
+    E_counts = skus.count('E')
 
-    return multi_price_calc(A_counts, 3, 50, 130) + multi_price_calc(B_counts, 2, 30, 45) + single_price_calc(C_counts, C_one_price) + single_price_calc(D_counts, D_one_price)
+    total = 0
+    total += multi_price_calc(A_counts, 3, 50, 130)
+    total += multi_price_calc(B_counts, 2, 30, 45)
+    total += single_price_calc(C_counts, C_one_price)
+    total += single_price_calc(D_counts, D_one_price)
+    total += buy_one_get_one_free(E_counts, 40)
+
+    return total
+
 
 
