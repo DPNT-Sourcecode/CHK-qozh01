@@ -81,16 +81,13 @@ def checkout(skus):
 
     # Check these counts
     B_counts = skus.count('B')
-    E_counts = skus.count('E')
-
-    N_counts = skus.count('N')
     M_counts = skus.count('M')
 
     R_counts = skus.count('R')
     Q_counts = skus.count('Q')
 
-    B_counts = special_minus(B_counts, get_free_Bs(E_counts))
-    M_counts = special_minus(M_counts, get_free_Bs(N_counts))
+    B_counts = special_minus(B_counts, get_free_Bs(skus.count('E')))
+    M_counts = special_minus(M_counts, get_free_Bs(skus.count('N')))
     Q_counts = special_minus(Q_counts, get_free_Bs(R_counts))
 
 
@@ -125,9 +122,16 @@ def checkout(skus):
 
     total += buy_n_get_k_free_calc(skus.count('U'), 40, 3, 1)
 
-    total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 3, 5)
+    total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 2, 3)
+
+
+    total += single_price_calc(skus.count('X'), 30)
+    total += single_price_calc(skus.count('Y'), 20)
+    total += single_price_calc(skus.count('Z'), 30)
+
 
     return total
+
 
 
 

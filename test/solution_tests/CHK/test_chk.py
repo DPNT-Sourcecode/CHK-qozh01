@@ -53,8 +53,9 @@ class TestCheckout():
     def test_checkout_6F(self):
         assert checkout_solution.checkout(5*"F") == 40
 
-    # def test_checkout_2K(self):
-    #     assert checkout_solution.checkout(2*"K") == 150
+    def test_checkout_2K(self):
+        assert checkout_solution.checkout(2*"K") == 150
 
-    # def test_checkout_1K(self):
-    #     assert checkout_solution.checkout(1*"K") == 80
+    def test_checkout_1K(self):
+        assert checkout_solution.checkout(1*"K") == 80
+
