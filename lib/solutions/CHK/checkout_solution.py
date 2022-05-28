@@ -61,7 +61,6 @@ def checkout(skus):
     free_Bs = get_free_Bs(E_counts)
 
     # minus off Bs until its zero.
-
     if (B_counts - free_Bs) > 0:
         B_counts = B_counts - free_Bs
     else:
@@ -75,5 +74,6 @@ def checkout(skus):
     total += single_price_calc(E_counts, 40)
 
     return total
+
 
 
