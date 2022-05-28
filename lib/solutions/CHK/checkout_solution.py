@@ -69,20 +69,25 @@ def myFunc(e):
 
 
 def calc_any_three_of_STXYZ(skus):
-    # skus_list = list(skus)
+    skus_list = list(skus)
 
     offer_SKUs_list = set("STXYZ")
 
-    intersection = offer_SKUs_list.intersection(skus)
+    intersection = offer_SKUs_list.intersection(skus_list)
     print(intersection)
     # sort interseciton by price.
-    list(intersection).sort(key=myFunc)
+    intersection = list(intersection)
+    intersection.sort(key=myFunc, reverse= True)
     # take top 3 most expensive
 
-    top_3_expensive_skus = intersection[:2]
+    print(intersection)
+    top_3_expensive_skus = intersection[:3]
+    print(top_3_expensive_skus)
 
     # pop them from remaining SKUs
-    intersection.pop(top_3_expensive_skus)
+    skus_list.pop(top_3_expensive_skus)
+
+
 
     # pop the most expensive 3 in the set.
     # Then try again. until intersecion is less than 3.
@@ -139,6 +144,7 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
 
