@@ -32,7 +32,7 @@ def single_price_calc(count, one_price):
     return count * one_price
 
 
-def free_Bs(E_count):
+def get_free_Bs(E_count):
     return E_count//2
 
 
@@ -58,22 +58,22 @@ def checkout(skus):
     D_counts = skus.count('D')
     E_counts = skus.count('E')
 
-
-    free_Bs = free_Bs(E_counts)
+    free_Bs = get_free_Bs(E_counts)
 
     # minus off Bs until its zero.
 
     if (B_counts - free_Bs) > 0:
-        B_counts = 
-
-    
+        B_counts = B_counts - free_Bs
+    else:
+        B_counts = 0
 
     total = 0
     total += multi_price_calc_A(A_counts, 50, 130, 200)
     total += multi_price_calc(B_counts, 2, 30, 45)
     total += single_price_calc(C_counts, C_one_price)
     total += single_price_calc(D_counts, D_one_price)
-    # total += buy_one_get_one_free(E_counts, 40, )
+    total += single_price_calc(E_counts, 40)
 
     return total
+
 
