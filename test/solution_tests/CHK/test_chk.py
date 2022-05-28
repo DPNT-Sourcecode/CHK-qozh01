@@ -79,11 +79,12 @@ class TestCheckout():
 class TestMultiOffer():
     def test_multi_offer(self):
         cost, _ = checkout_solution.calc_any_three_of_STXYZ("STXYZ")
-        assert cost == 20
+        assert cost == 45
 
     def test_multi_offer2(self):
         cost, _ = checkout_solution.calc_any_three_of_STXYZ("STXYZZ")
-        assert cost == 40
+        assert cost == 90
+
 
 
 

@@ -74,16 +74,20 @@ def calc_any_three_of_STXYZ(skus):
     skus_list = list(skus)
     offer_SKUs_list = set("STXYZ")
 
+    # pop the most expensive 3 in the set.
+    # Then try again. until intersecion is less than 3.
+    # Then calculate the remaining one by one.
+
     while True:
         intersection = offer_SKUs_list.intersection(skus_list)
         print(intersection)
-        if (len(intersection)<3):
+        if (len(intersection) < 3):
             break
         else:
-            n_offers_redeemed+=1
+            n_offers_redeemed += 1
             # sort interseciton by price.
             intersection = list(intersection)
-            intersection.sort(key=myFunc, reverse= True)
+            intersection.sort(key=myFunc, reverse=True)
             # take top 3 most expensive
             print(intersection)
             top_3_expensive_skus = intersection[:3]
@@ -92,18 +96,14 @@ def calc_any_three_of_STXYZ(skus):
             print(top_3_expensive_skus)
             print(skus_list)
 
-
-
-    # pop the most expensive 3 in the set.
-    # Then try again. until intersecion is less than 3.
-    # Then calculate the remaining one by one.
-
-    return n_offers_redeemed * 20, "".join(skus_list)
+    return n_offers_redeemed * 45, "".join(skus_list)
 
 
 def checkout(skus):
     if not isinput_sanitised(skus):
         return -1
+
+    total, skus = calc_any_three_of_STXYZ(skus)
 
     # Check these counts
     B_counts = skus.count('B')
@@ -114,7 +114,6 @@ def checkout(skus):
     M_counts = special_minus(M_counts, get_free_Bs(skus.count('N'), 3))
     Q_counts = special_minus(Q_counts, get_free_Bs(skus.count('R'), 3))
 
-    total = 0
     total += three_price_calc(skus.count('A'), 50, 130, 200, 1, 3, 5)
     total += two_price_calc(B_counts, 2, 30, 45)
     total += single_price_calc(skus.count('C'), 20)
@@ -149,6 +148,7 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
 
