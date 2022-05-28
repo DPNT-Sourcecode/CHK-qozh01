@@ -10,9 +10,16 @@ def multi_price_calc(count, offer_multiple, one_price, muliple_price):
 
     return remainder * one_price + quotient * muliple_price
 
+def isinput_sanitised(skus):
+    # Check if there are no values outside of ABCD
+    # if so, return false
+    return False
+
 
 def checkout(skus):
-    B_one_price = 30
+    if not isinput_sanitised(skus):
+        return -1
+
     C_one_price = 20
     D_one_price = 15
 
@@ -22,6 +29,7 @@ def checkout(skus):
     D_counts = skus.count('D')
 
     return multi_price_calc(A_counts, 3, 50, 130) + multi_price_calc(B_counts, 2, 30, 45) + C_one_price * C_counts + D_one_price * D_counts
+
 
 
 
