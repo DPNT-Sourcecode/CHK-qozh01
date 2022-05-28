@@ -116,10 +116,19 @@ def checkout(skus):
     total += single_price_calc(skus.count('O'), 10)
 
     total += two_price_calc(skus.count('P'), 5, 50, 200)
-    total += two_price_calc(skus.count('P'), 5, 30, 80)
+    total += two_price_calc(Q_counts, 3, 30, 80)
+    total += single_price_calc(R_counts, 50)
 
+    total += single_price_calc(skus.count('S'), 30)
+    total += single_price_calc(skus.count('T'), 20)
+
+
+    total += buy_n_get_k_free_calc(skus.count('U'), 40, 3, 1)
+
+    total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 3, 5)
 
     return total
+
 
 
 
