@@ -82,10 +82,10 @@ def calc_any_three_of_STXYZ(skus):
 
     print(intersection)
     top_3_expensive_skus = intersection[:3]
+    for i in top_3_expensive_skus:
+        skus_list.remove(i)
     print(top_3_expensive_skus)
 
-    # pop them from remaining SKUs
-    skus_list.pop(top_3_expensive_skus)
 
 
 
@@ -144,6 +144,7 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
 
