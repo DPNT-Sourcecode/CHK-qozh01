@@ -6,13 +6,14 @@ class TestCheckout():
         assert checkout_solution.checkout("ABCD") == 115
 
     def test_checkout_3A(self):
-        assert checkout_solution.checkout("ABACAD") == 1
+        assert checkout_solution.checkout("ABACAD") == 195
 
     def test_checkout_5C(self):
         assert checkout_solution.checkout("ABCD") == 1
 
     def test_checkout_5B(self):
         assert checkout_solution.checkout("ABCD") == 1
+
 
 
 

@@ -7,7 +7,12 @@ def get_A_total_price(count):
 
     offer_multiple = 3
     quotient = count // offer_multiple
-    remainder = count 
+    remainder = count % offer_multiple
+
+    one_price = 50
+    muliple_price = 130
+
+    return remainder * one_price + quotient * muliple_price
 
 
 
@@ -23,6 +28,7 @@ def checkout(skus):
     C_counts = skus.count('C')
     D_counts = skus.count('D')
 
-    return A_counts * A_one_price + B_one_price * B_counts + C_one_price * C_counts + D_one_price * D_counts
+    return get_A_total_price(A_counts) + B_one_price * B_counts + C_one_price * C_counts + D_one_price * D_counts
+
 
 
