@@ -81,6 +81,8 @@ class TestMultiOffer():
 
 
     def test_multi_offer2(self):
-        assert checkout_solution.calc_any_three_of_STXYZ("STXYZZ") == 40
+        cost , _=  checkout_solution.calc_any_three_of_STXYZ("STXYZZ") 
+        assert cost == 40
+
 
 
