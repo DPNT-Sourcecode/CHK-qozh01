@@ -9,15 +9,15 @@ allowed_values = "ABCDE"
 def multi_price_calc_A(count, price1, price3, price5):
     remainder = count
 
-    quotient5 = remainder // price5
-    remainder = remainder % price5
+    quotient5 = remainder // 5
+    remainder = remainder % 5
 
-    quotient3 = remainder // price3
-    remainder = remainder % price3
+    quotient3 = remainder // 3
+    remainder = remainder % 3
 
-    quotient1 = remainder // price1
+    quotient1 = remainder // 1
 
-    return remainder * one_price + quotient * muliple_price
+    return quotient5 * price5 + quotient3 * price3 + quotient1 * price1
 
 
 def multi_price_calc(count, offer_multiple, one_price, muliple_price):
