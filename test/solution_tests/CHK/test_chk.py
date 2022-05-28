@@ -54,10 +54,10 @@ class TestCheckout():
         assert checkout_solution.checkout(5*"F") == 40
 
     def test_checkout_2K(self):
-        assert checkout_solution.checkout(2*"K") == 150
+        assert checkout_solution.checkout(2*"K") == 120
 
     def test_checkout_1K(self):
-        assert checkout_solution.checkout(1*"K") == 80
+        assert checkout_solution.checkout(1*"K") == 70
 
     def test_checkout_VVVV(self):
         assert checkout_solution.checkout("VVVV") == 180
@@ -84,5 +84,6 @@ class TestMultiOffer():
     def test_multi_offer2(self):
         cost, _ = checkout_solution.calc_any_three_of_STXYZ("STXYZZ")
         assert cost == 90
+
 
 
