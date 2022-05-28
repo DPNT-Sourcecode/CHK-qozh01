@@ -31,6 +31,14 @@ def multi_price_calc(count, offer_multiple, one_price, muliple_price):
 def single_price_calc(count, one_price):
     return count * one_price
 
+def buy_2_get_1_free_calc(count, single_price):
+    quotient = count // 3
+    remainder = count // 3
+
+    return quotient * single_price * 2 + remainder * single_price
+
+
+
 
 def get_free_Bs(E_count):
     return E_count//2
@@ -75,8 +83,8 @@ def checkout(skus):
     # minus off Bs until its zero
     B_counts = special_minus(B_counts, free_Bs)
 
-    free_Fs = get_free_Fs(F_counts)
-    F_counts = special_minus(F_counts, free_Fs)
+    # free_Fs = get_free_Fs(F_counts)
+    # F_counts = special_minus(F_counts, free_Fs)
 
     total = 0
     total += multi_price_calc_A(A_counts, 50, 130, 200)
@@ -84,10 +92,6 @@ def checkout(skus):
     total += single_price_calc(C_counts, C_one_price)
     total += single_price_calc(D_counts, D_one_price)
     total += single_price_calc(E_counts, 40)
-    total += single_price_calc(F_counts, 10)
+    total += buy_2_get_1_free_calc(F_counts, 10)
 
     return total
-
-
-
-
