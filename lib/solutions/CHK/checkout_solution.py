@@ -77,18 +77,20 @@ def calc_any_three_of_STXYZ(skus):
     while True:
         intersection = offer_SKUs_list.intersection(skus_list)
         print(intersection)
-        if (len(intersection)>3
-
-        # sort interseciton by price.
-        intersection = list(intersection)
-        intersection.sort(key=myFunc, reverse= True)
-        # take top 3 most expensive
-        print(intersection)
-        top_3_expensive_skus = intersection[:3]
-        for i in top_3_expensive_skus:
-            skus_list.remove(i)
-        print(top_3_expensive_skus)
-        print(skus_list)
+        if (len(intersection)<3):
+            break
+        else:
+            n_offers_redeemed+=1
+            # sort interseciton by price.
+            intersection = list(intersection)
+            intersection.sort(key=myFunc, reverse= True)
+            # take top 3 most expensive
+            print(intersection)
+            top_3_expensive_skus = intersection[:3]
+            for i in top_3_expensive_skus:
+                skus_list.remove(i)
+            print(top_3_expensive_skus)
+            print(skus_list)
 
 
 
@@ -96,7 +98,7 @@ def calc_any_three_of_STXYZ(skus):
     # Then try again. until intersecion is less than 3.
     # Then calculate the remaining one by one.
 
-    return (len(intersection) // 3) * 20, "".join(skus_list)
+    return n_offers_redeemed * 20, "".join(skus_list)
 
 
 def checkout(skus):
@@ -147,6 +149,7 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
 
 
 
