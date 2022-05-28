@@ -31,20 +31,21 @@ def multi_price_calc(count, offer_multiple, one_price, muliple_price):
 def single_price_calc(count, one_price):
     return count * one_price
 
+
 def buy_2_get_1_free_calc(count, single_price):
     quotient = count // 3
-    remainder = count // 3
+    remainder = count % 3
 
     return quotient * single_price * 2 + remainder * single_price
-
-
 
 
 def get_free_Bs(E_count):
     return E_count//2
 
+
 def get_free_Fs(F_count):
     return F_count//2
+
 
 def isinput_sanitised(skus):
     # Check if there are no values outside of ABCD
@@ -65,6 +66,7 @@ def special_minus(B_counts, free_Bs):
 
     return B_counts
 
+
 def checkout(skus):
     if not isinput_sanitised(skus):
         return -1
@@ -79,12 +81,9 @@ def checkout(skus):
     E_counts = skus.count('E')
     F_counts = skus.count('F')
 
-    free_Bs = get_free_Bs(E_counts)
     # minus off Bs until its zero
+    free_Bs = get_free_Bs(E_counts)
     B_counts = special_minus(B_counts, free_Bs)
-
-    # free_Fs = get_free_Fs(F_counts)
-    # F_counts = special_minus(F_counts, free_Fs)
 
     total = 0
     total += multi_price_calc_A(A_counts, 50, 130, 200)
@@ -95,3 +94,4 @@ def checkout(skus):
     total += buy_2_get_1_free_calc(F_counts, 10)
 
     return total
+
