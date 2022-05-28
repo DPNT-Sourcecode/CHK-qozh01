@@ -157,11 +157,3 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), price_lookup("Z"))
 
     return total
-
-
-
-
-
-
-
-
