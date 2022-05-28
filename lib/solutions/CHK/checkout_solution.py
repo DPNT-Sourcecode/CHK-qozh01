@@ -85,7 +85,6 @@ def calc_any_three_of_STXYZ(skus):
     # pop the most expensive 3 in the set.
     # Then try again. until intersection is less than 3.
     # Then calculate the remaining one by one.
-
     while True:
         intersection = special_intersection(offer_SKUs_list, skus_list)
         print("Original Intersection", intersection)
@@ -96,7 +95,7 @@ def calc_any_three_of_STXYZ(skus):
             # sort interseciton by price.
             intersection = list(intersection)
             intersection.sort(key=price_lookup, reverse=True)
-            # take top 3 most expensive
+            # take top 3 most expensive and remove it.
             top_3_expensive_skus = intersection[:3]
             for i in top_3_expensive_skus:
                 skus_list.remove(i)
@@ -151,13 +150,14 @@ def checkout(skus):
     total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 2, 3)
     total += single_price_calc(skus.count('W'), 20)
 
-    total += single_price_calc(skus.count('S'), 20)
-    total += single_price_calc(skus.count('T'), 20)
-    total += single_price_calc(skus.count('X'), 17)
-    total += single_price_calc(skus.count('Y'), 20)
-    total += single_price_calc(skus.count('Z'), 21)
+    total += single_price_calc(skus.count('S'), price_lookup("S"))
+    total += single_price_calc(skus.count('T'), price_lookup("T"))
+    total += single_price_calc(skus.count('X'), price_lookup("X"))
+    total += single_price_calc(skus.count('Y'), price_lookup("Y"))
+    total += single_price_calc(skus.count('Z'), price_lookup("Z"))
 
     return total
+
 
 
 
