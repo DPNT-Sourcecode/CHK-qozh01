@@ -104,6 +104,8 @@ def checkout(skus):
     # remove all the offers that fall into the STXYZ category
     total, skus = calc_any_three_of_STXYZ(skus)
 
+    print("after skus", skus)
+
     # Check these counts
     B_counts = skus.count('B')
     M_counts = skus.count('M')
@@ -147,3 +149,4 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
