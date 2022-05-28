@@ -105,9 +105,22 @@ def checkout(skus):
 
     total += single_price_calc(skus.count('G'), 20)
     total += three_price_calc(skus.count('H'), 10, 45, 80, 1, 5, 10)
+    total += single_price_calc(skus.count('I'), 35)
+    total += single_price_calc(skus.count('J'), 60)
+    total += two_price_calc(skus.count('K'), 2, 80, 150)
+
+    total += single_price_calc(skus.count('L'), 90)
+    total += single_price_calc(M_counts, 15)
+    total += single_price_calc(N_counts, 40)
+
+    total += single_price_calc(skus.count('O'), 10)
+
+    total += two_price_calc(skus.count('P'), 5, 50, 200)
+    total += two_price_calc(skus.count('P'), 5, 30, 80)
 
 
     return total
+
 
 
 
