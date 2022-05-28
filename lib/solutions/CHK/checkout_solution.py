@@ -18,7 +18,7 @@ def single_price_calc(count, one_price):
     return count * one_price
 
 
-def buy_one_get_one_free(count, one_price):
+def buy_one_get_one_free(count, one_price, offer_bundle):
     return 0
 
 
@@ -49,7 +49,7 @@ def checkout(skus):
     total += multi_price_calc(B_counts, 2, 30, 45)
     total += single_price_calc(C_counts, C_one_price)
     total += single_price_calc(D_counts, D_one_price)
-    total += buy_one_get_one_free(E_counts, 40)
+    total += buy_one_get_one_free(E_counts, 40, )
 
     return total
 

@@ -18,17 +18,17 @@ class TestCheckout():
         assert checkout_solution.checkout("ABJKCD") == -1
 
     def test_checkout_2E(self):
-        assert checkout_solution.checkout("EE") == -1
+        assert checkout_solution.checkout("EE") == 80
 
-    def test_checkout_3E(self):
-        assert checkout_solution.checkout("EEE") == -1
+    def test_checkout_2E1B(self):
+        assert checkout_solution.checkout("EEB") == 80
 
     def test_checkout_5A(self):
         assert checkout_solution.checkout("EEEEE") == -1
 
     def test_checkout_3A(self):
-        assert checkout_solution.checkout("AAA") == -1
+        assert checkout_solution.checkout("AAA") == 130
     
-    def test_checkout_6A(self):
-        assert checkout_solution.checkout("AAAAAA") == -1
+    def test_checkout_8A(self):
+        assert checkout_solution.checkout("AAAAAA") == 
 
