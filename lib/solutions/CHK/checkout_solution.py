@@ -39,12 +39,8 @@ def buy_n_get_k_free_calc(count, single_price, n, k):
     return quotient * single_price * n + remainder * single_price
 
 
-def get_free_Bs(E_count):
-    return E_count//2
-
-
-def get_free_Fs(F_count):
-    return F_count//2
+def get_free_Bs(E_count, offer_count):
+    return E_count//offer_count
 
 
 def isinput_sanitised(skus):
@@ -67,14 +63,6 @@ def special_minus(B_counts, free_Bs):
     return B_counts
 
 
-def calc_xA_get_yB_free(count_B, count_A, priceB):
-
-    # minus off Bs until its zero
-    free_Bs = get_free_Bs(count_A)
-    count_B = special_minus(count_B, free_Bs)
-    return count_B * priceB
-
-
 def checkout(skus):
     if not isinput_sanitised(skus):
         return -1
@@ -82,23 +70,19 @@ def checkout(skus):
     # Check these counts
     B_counts = skus.count('B')
     M_counts = skus.count('M')
-
-    R_counts = skus.count('R')
     Q_counts = skus.count('Q')
 
-    B_counts = special_minus(B_counts, get_free_Bs(skus.count('E')))
-    M_counts = special_minus(M_counts, get_free_Bs(skus.count('N')))
-    Q_counts = special_minus(Q_counts, get_free_Bs(R_counts))
-
+    B_counts = special_minus(B_counts, get_free_Bs(skus.count('E')), 2)
+    M_counts = special_minus(M_counts, get_free_Bs(skus.count('N')), 3)
+    Q_counts = special_minus(Q_counts, get_free_Bs(skus.count('R')), 3)
 
     total = 0
     total += three_price_calc(skus.count('A'), 50, 130, 200, 1, 3, 5)
     total += two_price_calc(B_counts, 2, 30, 45)
     total += single_price_calc(skus.count('C'), 20)
     total += single_price_calc(skus.count('D'), 15)
-    total += single_price_calc(E_counts, 40)
+    total += single_price_calc(skus.count('E'), 40)
     total += buy_n_get_k_free_calc(skus.count('F'), 10, 2, 1)
-
 
     total += single_price_calc(skus.count('G'), 20)
     total += three_price_calc(skus.count('H'), 10, 45, 80, 1, 5, 10)
@@ -108,29 +92,27 @@ def checkout(skus):
 
     total += single_price_calc(skus.count('L'), 90)
     total += single_price_calc(M_counts, 15)
-    total += single_price_calc(N_counts, 40)
+    total += single_price_calc(skus.count('N'), 40)
 
     total += single_price_calc(skus.count('O'), 10)
 
     total += two_price_calc(skus.count('P'), 5, 50, 200)
     total += two_price_calc(Q_counts, 3, 30, 80)
-    total += single_price_calc(R_counts, 50)
+    total += single_price_calc(skus.count('R'), 50)
 
     total += single_price_calc(skus.count('S'), 30)
     total += single_price_calc(skus.count('T'), 20)
-
 
     total += buy_n_get_k_free_calc(skus.count('U'), 40, 3, 1)
 
     total += three_price_calc(skus.count('V'), 50, 90, 130, 1, 2, 3)
 
-
     total += single_price_calc(skus.count('X'), 30)
     total += single_price_calc(skus.count('Y'), 20)
     total += single_price_calc(skus.count('Z'), 30)
 
-
     return total
+
 
 
 
