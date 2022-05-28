@@ -3,7 +3,7 @@
 # noinspection PyUnusedLocal
 # skus = unicode string
 
-allowed_values = "ABCDEF"
+allowed_values = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
 def three_price_calc(count, price1, price3, price5, qty1, qty2, qty3):
@@ -20,12 +20,12 @@ def three_price_calc(count, price1, price3, price5, qty1, qty2, qty3):
     return quotient5 * price5 + quotient3 * price3 + quotient1 * price1
 
 
-def two_price_calc(count, price1, price2, qty2):
+def two_price_calc(count, offer_multiple, one_price, muliple_price):
 
-    quotient = count // qty2
-    remainder = count % qty2
+    quotient = count // offer_multiple
+    remainder = count % offer_multiple
 
-    return remainder * price1 + quotient * price2
+    return remainder * one_price + quotient * muliple_price
 
 
 def single_price_calc(count, one_price):
