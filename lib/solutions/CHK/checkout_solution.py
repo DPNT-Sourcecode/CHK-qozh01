@@ -38,8 +38,6 @@ def get_free_Bs(E_count):
 def get_free_Fs(F_count):
     return F_count//2
 
-
-
 def isinput_sanitised(skus):
     # Check if there are no values outside of ABCD
     # if so, return false
