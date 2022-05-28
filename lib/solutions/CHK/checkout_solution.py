@@ -68,6 +68,13 @@ def price_lookup(e):
     return selected_prices[e]
 
 
+def special_intersection(offer_SKUs_list, skus_list):
+
+    
+    for i in offer_SKUs_list:
+    return offer_SKUs_list.intersection(skus_list)
+
+
 def calc_any_three_of_STXYZ(skus):
 
     n_offers_redeemed = 0
@@ -79,7 +86,7 @@ def calc_any_three_of_STXYZ(skus):
     # Then calculate the remaining one by one.
 
     while True:
-        intersection = offer_SKUs_list.intersection(skus_list)
+        intersection = special_intersection(offer_SKUs_list, skus_list)
         print("Original Intersection", intersection)
         if (len(intersection) < 3):
             break
@@ -150,6 +157,7 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 21)
 
     return total
+
 
 
 
