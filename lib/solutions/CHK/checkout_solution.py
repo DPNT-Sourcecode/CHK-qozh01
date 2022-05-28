@@ -64,14 +64,18 @@ def special_minus(B_counts, free_Bs):
 
 def calc_any_three_of_STXYZ(skus):
     # skus_list = list(skus)
+
+    prices = {"X"}
     offer_SKUs_list = set("STXYZ")
 
     intersection = offer_SKUs_list.intersection(skus)
     print(intersection)
 
+    # pop the most expensive 3 in the set. 
+    # Then try again. until intersecion is less than 3.
+    # Then calculate the remaining one by one.
 
-
-    return len(intersection) 
+    return (len(intersection) // 3) * 20
 
 
 
@@ -128,3 +132,4 @@ def checkout(skus):
     total += single_price_calc(skus.count('Z'), 50)
 
     return total
+
